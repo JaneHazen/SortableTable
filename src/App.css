@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: white;
+  height: 80px;
+  padding: 20px;
+  color: #30dba8;
+}
+
+.App-title {
+  font-size: 1.5em;
+  font-family: 'Quicksand', sans-serif;
+  border-bottom: 10px solid #a57ff5;
+}
+
+button {
+  background-color: white;
+  color: #a57ff5;
+  border: 1px solid #30dba8;
+  font-size:1em;
+  font-family: 'Quicksand', sans-serif;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a57ff5;
+  color: white;
+  border: 1px solid black;
+}
+
+table {
+  margin: auto;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th {
+  text-align: left;
+  font-size: 1.5em
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
