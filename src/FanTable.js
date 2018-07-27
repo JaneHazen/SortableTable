@@ -55,42 +55,29 @@ class FanTable extends Component {
     }
 
     render() {
+        let attributes = Object.keys(this.props.data[0]);
+        let headers = attributes.map(attribute => {
+            return (<th><button onClick={() => this.props.sortBy(attribute)}>{attribute}</button></th>)
+        });
         return(
             <table>
                 <thead>
                 <tr>
-                    <th>
-                        <button onClick={() => this.props.sortBy('name')}>Name</button>
-                    </th>
-                    <th>
-                        <button onClick={() => this.props.sortBy('address')}>Address</button>
-                    </th>
-                    <th>
-                        <button onClick={() => this.props.sortBy('city')}>City</button>
-                    </th>
-                    <th>
-                        <button onClick={() => this.props.sortBy('region')}>Region</button>
-                    </th>
-                    <th>
-                        <button onClick={() => this.props.sortBy('country')}>Country</button>
-                    </th>
-                    <th>
-                        <button onClick={() => this.props.sortBy('birthday')}>Birthday</button>
-                    </th>
+                    {headers}
                 </tr>
                 </thead>
                 <tbody>
                 {
-                    this.props.data.map(row => (
-                        <tr>
-                            <td>{row.name}</td>
-                            <td>{row.address}</td>
-                            <td>{row.city.replace('Ã¯Â¿Â½', 'e')}</td>
-                            <td>{FanTable.findRegionAbbreviation(row.region)}</td>
-                            <td>{row.country}</td>
-                            <td>{row.birthday}</td>
-                        </tr>
-                    ) )
+                    this.props.data.map((row, index) => {
+                        let userInfo = attributes.map( attribute => {
+                            return(<td key={attribute}>{row[attribute]}</td>)
+                        });
+                        return (
+                            <tr key={index}>
+                                {userInfo}
+                            </tr>
+                        )
+                    })
                 }
 
                 </tbody>
